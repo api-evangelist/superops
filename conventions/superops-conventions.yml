@@ -1,0 +1,70 @@
+generated: '2026-07-21'
+method: searched
+source: https://support.superops.com/en/collections/3666305-api-documentation
+description: >-
+  Cross-cutting request/response conventions that apply to every SuperOps
+  GraphQL operation (not any single query or mutation): authentication style,
+  data-center routing, pagination, search/filter and sorting, error envelope,
+  rate-limit signaling, date handling, and file transfer. Captured from the
+  SuperOps API documentation collection.
+api_style: GraphQL over HTTPS (POST), JSON request/response
+endpoints:
+  msp:
+    us: https://api.superops.ai/msp
+    eu: https://euapi.superops.ai/msp
+  it:
+    us: https://api.superops.ai/it
+    eu: https://euapi.superops.ai/it
+  routing: >-
+    Choose the endpoint by data center (US vs EU) and product surface (msp vs
+    it). The same GraphQL schema shape is served per surface.
+authentication:
+  scheme: HTTP Bearer token + CustomerSubDomain header
+  headers: [Authorization, CustomerSubDomain]
+  detail: authentication/superops-authentication.yml
+  docs: https://support.superops.com/en/articles/6632215-how-to-integrate-applications-using-superops-ai-graphql-apis
+idempotency:
+  supported: false
+  note: >-
+    SuperOps does not document an idempotency-key mechanism for GraphQL
+    mutations. Bulk mutations report per-object failures via an index in the
+    error param (see errors/superops-error-codes.yml).
+pagination:
+  style: page-based
+  input: ListInfoInput
+  request_params:
+    page: page number
+    pageSize: records per page (maximum 100)
+  response_fields:
+    totalCount: total number of records available
+    hasMore: whether more records remain (for lazy loading)
+  limit: Maximum 100 records per API request.
+  docs: https://support.superops.com/en/articles/6632220-search-pagination-and-sorting
+filtering:
+  model: condition with attribute / value / operator
+  attribute: dot-delimited attribute path, e.g. technician.email
+  join: joinOperator AND/OR with nested operands for complex filters
+  operators:
+    string: [is, isNot, isEmpty, isNotEmpty, startsWith, endsWith, contains, notContains, includes, notIncludes]
+    number: [is, isNot, isEmpty, isNotEmpty, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual]
+    date: [on, between, inNext, inLast, after, before]
+    boolean: [is]
+  docs: https://support.superops.com/en/articles/6632220-search-pagination-and-sorting
+sorting:
+  model: list of {attribute, order}; multiple sort attributes applied sequentially in the order specified
+error_envelope:
+  shape: >-
+    GraphQL errors[] with extensions.clientError[] carrying { code, param }.
+    Bulk actions add an index attribute in param to identify the failing object.
+  detail: errors/superops-error-codes.yml
+  docs: https://support.superops.com/en/articles/6632228-handling-errors
+rate_limiting:
+  limit: 800 requests per minute
+  exceeded_code: rate_limit_exceeded (returned with HTTP 200 in extensions.clientError)
+  detail: rate-limits/superops-rate-limits.yml
+date_time:
+  timezone: UTC
+  format: ISO 8601, e.g. 2022-04-10T10:15:30
+file_transfer:
+  supported: true
+  docs: https://support.superops.com/en/articles/6632225-file-uploads-and-downloads

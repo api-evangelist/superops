@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: https://developer.superops.com/msp
+description: >-
+  No official hosted/remote SuperOps MCP server was found (no @superops or
+  @modelcontextprotocol package, no entry in public MCP registries, only a
+  single unrelated repo in the github.com/superopsai org). This is a CANDIDATE
+  tool list derived from operations documented in the SuperOps MSP GraphQL API
+  reference — a starting point for an MCP wrapper, not a published server. Each
+  tool maps to a real documented GraphQL query/mutation; auth is bearer token +
+  CustomerSubDomain header (see authentication/superops-authentication.yml).
+server:
+  name: superops
+  transport: http
+  url: null
+  auth: Bearer API token + CustomerSubDomain header
+tools:
+- {name: list_clients, description: List MSP clients, source_operation: 'developer.superops.com/msp#getClientList'}
+- {name: create_client, description: Create a client, source_operation: 'developer.superops.com/msp#createClient'}
+- {name: list_tickets, description: List service desk tickets, source_operation: 'developer.superops.com/msp#getTicketList'}
+- {name: create_ticket, description: Create a ticket, source_operation: 'developer.superops.com/msp#createTicket'}
+- {name: update_ticket, description: Update ticket details, source_operation: 'developer.superops.com/msp#updateTicket'}
+- {name: list_assets, description: List monitored assets, source_operation: 'developer.superops.com/msp#getAssetList'}
+- {name: list_invoices, description: List invoices, source_operation: 'developer.superops.com/msp#getInvoiceList'}
+- {name: create_invoice, description: Create an invoice, source_operation: 'developer.superops.com/msp#createInvoice'}
+- {name: list_service_catalog_items, description: List service catalog items, source_operation: 'developer.superops.com/msp#getServiceCatalogItemList'}
+- {name: list_kb_items, description: List knowledge base items, source_operation: 'developer.superops.com/msp#getKbItems'}

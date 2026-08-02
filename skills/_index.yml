@@ -1,0 +1,17 @@
+generated: '2026-07-21'
+method: generated
+source: https://support.superops.com/en/collections/3666305-api-documentation
+description: >-
+  Packaged Agent Skills for the SuperOps MSP GraphQL API. Each skill grounds its
+  steps in real documented GraphQL operations plus the shared auth, pagination,
+  and error conventions captured in this repo. No OpenAPI/SDL is published by
+  SuperOps, so operations are cited from the developer reference.
+skills:
+- file: superops-manage-tickets.md
+  name: Manage SuperOps service desk tickets
+  api: https://developer.superops.com/msp
+  operations: [getTicketList, getTicket, createTicket, updateTicket]
+- file: superops-manage-clients-and-invoices.md
+  name: Manage SuperOps clients and invoices
+  api: https://developer.superops.com/msp
+  operations: [getClientList, createClient, getInvoiceList, createInvoice]

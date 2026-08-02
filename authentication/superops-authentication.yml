@@ -1,0 +1,50 @@
+generated: '2026-07-21'
+method: searched
+source: https://support.superops.com/en/articles/6632215-how-to-integrate-applications-using-superops-ai-graphql-apis
+docs: https://support.superops.com/en/collections/3666305-api-documentation
+description: >-
+  SuperOps GraphQL APIs authenticate with a personal API token passed as an
+  HTTP Bearer token, combined with a mandatory CustomerSubDomain header that
+  identifies the tenant. There is no OAuth 2.0 / OpenID Connect flow; the token
+  is generated in the SuperOps app and a tenant may hold only one active token
+  at a time.
+summary:
+  types: [http-bearer, apiKey]
+  oauth2_flows: []
+  api_key_in: [header]
+schemes:
+- name: BearerToken
+  type: http
+  scheme: bearer
+  in: header
+  header: Authorization
+  format: 'Bearer <API_TOKEN>'
+  description: >-
+    Personal API token generated at Settings > My Profile > API token tab. Only
+    one token can be active per user at a time; regenerating invalidates the old
+    token.
+  sources: [docs]
+- name: CustomerSubDomain
+  type: apiKey
+  in: header
+  header: CustomerSubDomain
+  description: >-
+    Mandatory tenant identifier header. The value is the MSP subdomain found at
+    Settings > MSP Information under My MSP. Every request must send both the
+    Authorization and CustomerSubDomain headers.
+  sources: [docs]
+token_management:
+  location: Settings > My Profile > API token tab
+  one_active_token: true
+  invalid_token_error: 'HTTP 401 — "The API token used is invalid or deleted."'
+  invalid_subdomain_error: 'HTTP 400 — invalid subdomain provided'
+endpoints:
+- surface: msp
+  us: https://api.superops.ai/msp
+  eu: https://euapi.superops.ai/msp
+- surface: it
+  us: https://api.superops.ai/it
+  eu: https://euapi.superops.ai/it
+notes:
+  - Requests use UTC timezone with ISO date format, e.g. 2022-04-10T10:15:30.
+  - Rate limit is 800 requests per minute (see rate-limits/superops-rate-limits.yml).

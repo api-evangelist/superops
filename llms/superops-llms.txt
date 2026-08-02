@@ -1,0 +1,38 @@
+# SuperOps
+
+> SuperOps is a unified PSA (Professional Services Automation) and RMM (Remote Monitoring and Management) platform for MSPs and internal IT teams. It exposes a public GraphQL API (separate MSP and IT surfaces, US and EU data centers) for clients, tickets, assets, users, invoices, knowledge base, and service catalog data. Requests authenticate with a bearer API token plus a CustomerSubDomain header and are limited to 800 requests per minute.
+
+## APIs
+
+- [SuperOps MSP GraphQL API](https://developer.superops.com/msp): GraphQL for MSPs — clients, tickets, assets, users, invoices, KB, service catalog. Endpoints: https://api.superops.ai/msp (US), https://euapi.superops.ai/msp (EU).
+- [SuperOps IT GraphQL API](https://developer.superops.com/it): GraphQL for internal IT teams — assets, tickets, users, KB, service catalog, IT documentation. Endpoints: https://api.superops.ai/it (US), https://euapi.superops.ai/it (EU).
+
+## Docs
+
+- [API documentation collection](https://support.superops.com/en/collections/3666305-api-documentation): getting started, GraphQL intro, Postman, errors, pagination, file uploads.
+- [Integrate applications using the GraphQL API](https://support.superops.com/en/articles/6632215-how-to-integrate-applications-using-superops-ai-graphql-apis): authentication (Authorization: Bearer + CustomerSubDomain), token generation, rate limits.
+- [Search, pagination, and sorting](https://support.superops.com/en/articles/6632220-search-pagination-and-sorting): ListInfoInput (page/pageSize/totalCount/hasMore), filter operators, sorting.
+- [Handling errors](https://support.superops.com/en/articles/6632228-handling-errors): GraphQL errors[] with extensions.clientError codes.
+- [Developer portal](https://developer.superops.com): interactive GraphQL reference.
+
+## Artifacts
+
+- [Authentication](authentication/superops-authentication.yml): bearer API token + CustomerSubDomain header.
+- [Conventions](conventions/superops-conventions.yml): pagination, filtering, sorting, error envelope, rate limits, date/time.
+- [Error codes](errors/superops-error-codes.yml): GraphQL clientError app-code registry.
+- [Rate limits](rate-limits/superops-rate-limits.yml): 800 requests/minute; 100 records/request.
+- [Lifecycle](lifecycle/superops-lifecycle.yml): surfaces, data centers, status page.
+- [Conformance](conformance/superops-conformance.yml): GraphQL, pagination, SOC 2 / ISO 27001 / HIPAA / GDPR.
+- [Trust center](security/superops-trust-center.yml): SOC 2 Type 2, ISO 27001, HIPAA, GDPR.
+- [Vulnerability disclosure](security/superops-vulnerability-disclosure.yml): responsible disclosure program.
+- [Domain security](security/superops-domain-security.yml): TLS/HSTS/SPF/DMARC probe.
+- [Changelog](changelog/superops-changelog.yml): quarterly What's New updates.
+- [MCP server (candidate)](mcp/superops-mcp.yml): derived candidate tool list.
+- [Agent skills](skills/_index.yml): packaged operating instructions.
+
+## Operational
+
+- [Status page](https://status.superops.com): US and EU Authentication, PSA, RMM.
+- [Security & compliance](https://superops.com/security): SOC 2 Type 2, ISO 27001, HIPAA, GDPR.
+- [Pricing](https://superops.com/pricing)
+- [Sign up](https://superops.com/signup)

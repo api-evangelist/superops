@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+description: >-
+  Results of probing the /.well-known/ discovery surface for the SuperOps web,
+  developer, and API hosts. No well-known documents were served: the GraphQL API
+  hosts (api/euapi.superops.ai) reject well-known paths with HTTP 400, the
+  developer portal returns 403, and the marketing site returns 404. No
+  security.txt, OIDC, OAuth authorization-server, api-catalog, or ai-plugin
+  document exists to save. This is a valid empty result — no pointer is wired.
+hosts:
+- host: https://api.superops.ai
+  documents:
+  - {path: /.well-known/security.txt, status: 400}
+  - {path: /.well-known/openid-configuration, status: 400}
+  - {path: /.well-known/oauth-authorization-server, status: 400}
+- host: https://euapi.superops.ai
+  documents:
+  - {path: /.well-known/security.txt, status: 400}
+- host: https://superops.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://developer.superops.com
+  documents:
+  - {path: /.well-known/security.txt, status: 403}

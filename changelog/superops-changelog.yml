@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: https://superops.com/roadmap
+description: >-
+  SuperOps communicates product and platform changes through quarterly "What's
+  New" release updates rather than a per-version dated API changelog. This
+  artifact captures the recent update window; the live updates page is the
+  source of truth. The GraphQL API itself is not numerically versioned (see
+  lifecycle/superops-lifecycle.yml).
+docs: https://superops.com/roadmap
+versioning:
+  scheme: quarterly product release updates ("What's New")
+  api_versioned: false
+entries:
+- period: Q2 2025
+  latest: true
+  highlights:
+    - Monica AI "Patch Insights" — instant summaries for Windows patches
+    - Invoicing — automated reminders, late fees, multiple schedules, consumption reports
+    - Knowledge Base V2 — AI-powered solution suggestions from tickets and articles
+    - Mobile Device Management (MDM) completing the Unified Endpoint Management vision
+    - Topology Mapping — real-time network visualization of endpoints and connections
+    - New integrations — Axient, Huntress, ESET
+    - Maintenance Mode for network devices to pause alerts during planned downtime
+    - Instant Communication channels for Microsoft Teams and Slack

@@ -1,0 +1,14 @@
+{
+  "repo": "superops",
+  "feeds": [
+    {
+      "source": "https://support.superops.com",
+      "feed_url": "https://support.superops.com/feed.xml",
+      "title": "",
+      "saved": 3,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 3,
+  "fetched": "2026-08-01T15:49:00Z"
+}

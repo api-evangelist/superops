@@ -1,0 +1,80 @@
+generated: '2026-07-21'
+method: searched
+source: https://support.superops.com/en/articles/6632228-handling-errors
+description: >-
+  SuperOps GraphQL API error registry. Errors are returned in the GraphQL
+  errors[] array with an extensions.clientError[] list of { code, param }
+  objects. Authentication/tenant failures surface as real HTTP status codes
+  (401/400); business and validation failures are returned with HTTP 200 and a
+  machine-readable app code in extensions.clientError[].code. For bulk actions
+  the param object also carries an index identifying which input object failed.
+format: graphql-errors
+envelope:
+  path: errors[].extensions.clientError[]
+  fields: [code, param]
+  bulk_index: errors[].extensions.clientError[].param.index
+errors:
+- name: Invalid API token
+  http_status: 401
+  code: null
+  meaning: The API token used is invalid or deleted.
+  remediation: Regenerate the token at Settings > My Profile > API token tab and resend.
+- name: Invalid subdomain
+  http_status: 400
+  code: null
+  meaning: Invalid subdomain provided.
+  remediation: Set the CustomerSubDomain header to the MSP subdomain from Settings > MSP Information.
+- name: Access denied
+  http_status: 200
+  code: forbidden
+  meaning: API token does not have the required authorization.
+  remediation: Use a token whose user role grants access to the requested resource.
+- name: API limit reached
+  http_status: 200
+  code: rate_limit_exceeded
+  meaning: User exceeded the API request quota (800 requests per minute).
+  remediation: Throttle requests below 800/minute and retry.
+- name: Subscription trial expired
+  http_status: 200
+  code: subscription_trial_expired
+  meaning: The trial period has ended.
+- name: Subscription paused
+  http_status: 200
+  code: subscription_paused
+  meaning: The active subscription is paused.
+- name: Subscription canceled
+  http_status: 200
+  code: subscription_cancelled
+  meaning: The subscription has been terminated.
+- name: Type validation failed
+  http_status: 200
+  code: type_validation_failed
+  meaning: Data type doesn't match the expected type.
+- name: Mandatory validation failed
+  http_status: 200
+  code: mandatory_validation_failed
+  meaning: A required field is missing a value.
+- name: Field length validation failed
+  http_status: 200
+  code: value_length_exceeds_limit
+  meaning: Value length exceeds the allowed limit.
+- name: Allowed value validation failed (referential)
+  http_status: 200
+  code: referred_value_does_not_exist
+  meaning: A referenced value does not exist.
+- name: Allowed value validation failed (pattern)
+  http_status: 200
+  code: value_pattern_validation_failed
+  meaning: Value does not meet the required pattern.
+- name: Dependency validation failed
+  http_status: 200
+  code: dependent_validation_failed
+  meaning: No relationship exists between dependent attributes.
+- name: Unique validation failed
+  http_status: 200
+  code: unique_validation_failed
+  meaning: Attempted to create a duplicate record.
+- name: Entity does not exist
+  http_status: 200
+  code: entity_does_not_exist
+  meaning: The referenced entity is missing from the system.

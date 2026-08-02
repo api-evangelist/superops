@@ -1,8 +1,15 @@
 aid: superops
 name: SuperOps
-description: 'SuperOps is a company surfaced as a portfolio company of addition and added to the API Evangelist
-  network as a stub for enrichment. Sector: it-management-software. This profile is a lead awaiting the
-  enrichment pipeline.'
+description: >-
+  SuperOps is a unified PSA (Professional Services Automation) and RMM (Remote
+  Monitoring and Management) platform for managed service providers (MSPs) and
+  internal IT teams, spanning service desk and ticketing, endpoint monitoring,
+  patch management, asset and IT documentation, project management, billing and
+  invoicing, and AI-assisted operations. SuperOps exposes a public GraphQL API
+  with separate MSP and IT surfaces across US and EU data centers, giving
+  programmatic access to clients, tickets, assets, users, invoices, knowledge
+  base, and service catalog data. Requests authenticate with a bearer API token
+  plus a CustomerSubDomain header and are limited to 800 requests per minute.
 url: https://raw.githubusercontent.com/api-evangelist/superops/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,13 +17,60 @@ x-backed-by:
 - addition
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://us-west-2.graphassets.com/AsRMKMrtKTFW6TGbr4KgUz/cmo8lbrrc1xga07n3l58jhure
 tags:
 - Company
 - It Management Software
-apis: []
+- PSA
+- RMM
+- MSP
+- Service Desk
+- Endpoint Management
+- IT Documentation
+- GraphQL
+apis:
+- name: SuperOps MSP GraphQL API
+  description: >-
+    GraphQL API for MSPs covering clients, tickets, assets, users, invoices,
+    knowledge base, and service catalog. US and EU data centers.
+  humanURL: https://developer.superops.com/msp
+  baseURL: https://api.superops.ai/msp
+  properties:
+  - type: APIReference
+    url: https://developer.superops.com/msp
+  - type: GraphQL
+    url: https://api.superops.ai/msp
+- name: SuperOps IT GraphQL API
+  description: >-
+    GraphQL API for internal IT teams covering assets, tickets, users, knowledge
+    base, service catalog, and IT documentation. US and EU data centers.
+  humanURL: https://developer.superops.com/it
+  baseURL: https://api.superops.ai/it
+  properties:
+  - type: APIReference
+    url: https://developer.superops.com/it
+  - type: GraphQL
+    url: https://api.superops.ai/it
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +79,55 @@ maintainers:
 common:
 - type: Website
   url: https://superops.com
+- type: DeveloperPortal
+  url: https://developer.superops.com
+- type: Documentation
+  url: https://support.superops.com/en/collections/3666305-api-documentation
+- type: GettingStarted
+  url: https://support.superops.com/en/articles/6632215-how-to-integrate-applications-using-superops-ai-graphql-apis
+- type: Support
+  url: https://support.superops.com
+- type: Blog
+  url: https://superops.com/blog
+- type: Pricing
+  url: https://superops.com/pricing
+- type: SignUp
+  url: https://superops.com/signup
+- type: TermsOfService
+  url: https://superops.com/terms
+- type: PrivacyPolicy
+  url: https://superops.com/privacy
+- type: StatusPage
+  url: https://status.superops.com
+- type: GitHubOrganization
+  url: https://github.com/superopsai
+- type: Authentication
+  url: authentication/superops-authentication.yml
+- type: Conventions
+  url: conventions/superops-conventions.yml
+- type: RateLimits
+  url: rate-limits/superops-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/superops-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/superops-lifecycle.yml
+- type: Conformance
+  url: conformance/superops-conformance.yml
+- type: Compliance
+  url: https://superops.com/security
+- type: TrustCenter
+  url: security/superops-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/superops-vulnerability-disclosure.yml
+- type: Security
+  url: https://superops.com/security/responsible-disclosure
+- type: DomainSecurity
+  url: security/superops-domain-security.yml
+- type: ChangeLog
+  url: changelog/superops-changelog.yml
+- type: MCPServer
+  url: mcp/superops-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/superops-llms.txt

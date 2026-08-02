@@ -1,0 +1,43 @@
+generated: '2026-07-21'
+method: searched
+source: https://support.superops.com/en/collections/3666305-api-documentation
+description: >-
+  Cross-cutting and industry standards the SuperOps API conforms to, derived
+  from the published API documentation and security posture. SuperOps ships a
+  GraphQL API (not REST/OpenAPI), authenticated by bearer token + tenant header
+  (no OAuth2/OIDC). Compliance certifications (SOC 2 Type 2, ISO 27001, HIPAA,
+  GDPR) are published on the security page and captured in
+  security/superops-trust-center.yml.
+standards:
+- id: graphql
+  conforms: true
+  evidence: Public GraphQL API with typed queries/mutations at api.superops.ai/{msp,it}.
+- id: oauth2
+  conforms: false
+  evidence: Auth is a personal bearer API token plus CustomerSubDomain header; no OAuth2 flow.
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use the GraphQL errors[]/extensions.clientError envelope, not application/problem+json.
+- id: pagination
+  conforms: true
+  evidence: ListInfoInput page/pageSize with totalCount/hasMore; max 100 records per request.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key mechanism documented for mutations.
+- id: rate-limiting
+  conforms: true
+  evidence: 800 requests/minute enforced; rate_limit_exceeded app code returned on breach.
+- id: soc2
+  conforms: true
+  evidence: SOC 2 Type 2 published on https://superops.com/security.
+- id: iso27001
+  conforms: true
+  evidence: ISO 27001 published on https://superops.com/security.
+- id: hipaa
+  conforms: true
+  evidence: HIPAA published on https://superops.com/security.
+- id: gdpr
+  conforms: true
+  evidence: GDPR published on https://superops.com/security.

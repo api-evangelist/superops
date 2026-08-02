@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: https://status.superops.com
+description: >-
+  Operational lifecycle posture for the SuperOps GraphQL API. SuperOps segments
+  the API by product surface (msp / it) rather than by numeric version, and
+  routes by data center (US api.superops.ai, EU euapi.superops.ai). SuperOps
+  does not publish a formal deprecation/sunset policy (RFC 8594) for the API;
+  product changes are communicated through the quarterly "What's New" release
+  updates. A public multi-region status page is maintained.
+versioning:
+  scheme: surface-and-region path (msp/it, US vs EU host)
+  numeric_versions: false
+  docs: https://developer.superops.com
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published RFC 8594 deprecation/sunset policy found.
+status_page:
+  url: https://status.superops.com
+  components:
+    us: [Production Authentication, Production PSA, Production RMM]
+    eu: [Production EU Authentication, Production EU PSA, Production EU RMM]
+  subprocessors: [AWS, Nylas, Splashtop, Sendgrid]
+sla:
+  url: null
+  note: Uptime is published historically on the status page (US/EU auth, PSA, RMM).
+release_updates: https://superops.com/roadmap
+deprecated_operations: []

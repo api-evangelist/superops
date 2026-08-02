@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+probe: false
+source: https://superops.com/security
+url: https://superops.com/security
+description: >-
+  SuperOps security and compliance posture, captured from the public security
+  page. SuperOps maintains named certifications and privacy programs and runs on
+  AWS infrastructure. There is no dedicated trust.superops.com subdomain; the
+  security page is the canonical hub.
+certifications:
+- {name: SOC 2 Type 2}
+- {name: ISO 27001}
+- {name: HIPAA}
+- {name: GDPR}
+infrastructure:
+  provider: AWS
+  aws_compliance: [SOC 1/ISAE 3402, SOC 2, SOC 3, PCI DSS Level 1, ISO 9001, ISO 27001, ISO 27017, ISO 27018]
+responsible_disclosure: https://superops.com/security/responsible-disclosure
+hall_of_fame: https://superops.com/security-hall-of-fame
+docs:
+- https://superops.com/security
+evidence:
+- {source: https://superops.com/security, keywords: [soc 2 type 2, iso 27001, hipaa, gdpr]}

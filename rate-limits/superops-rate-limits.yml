@@ -1,0 +1,30 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+generated: '2026-07-21'
+method: searched
+source: https://support.superops.com/en/articles/6632215-how-to-integrate-applications-using-superops-ai-graphql-apis
+provider: SuperOps
+providerId: superops
+created: '2026-07-21'
+modified: '2026-07-21'
+tags:
+  - Rate Limiting
+  - GraphQL
+description: >-
+  SuperOps GraphQL APIs enforce a maximum of 800 API requests per minute per
+  user/token. Exceeding the quota returns a GraphQL error with app code
+  rate_limit_exceeded (delivered with HTTP 200). Separately, any single list
+  request may return at most 100 records (pageSize cap).
+responseCodes:
+  throttled: rate_limit_exceeded
+limits:
+  - name: API requests
+    scope: user
+    metric: requests_per_minute
+    limit: 800
+    timeFrame: minute
+  - name: List page size
+    scope: request
+    metric: records_per_request
+    limit: 100
+    timeFrame: request
