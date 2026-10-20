@@ -30,6 +30,18 @@
     - superops-it
   status: not-a-workflow
   arazzo: null
+- slug: superops-freshworks-own
+  label: Freshworks (own)
+  partner: freshworks
+  partner_name: Freshworks (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.freshworks.com/apps/freshservice_superops_integration
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
 - slug: superops-microsoft-teams-own
   label: Microsoft Teams (own)
   partner: microsoft-teams

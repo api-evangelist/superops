@@ -27,6 +27,24 @@ edges:
     - superops-it
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Freshworks (own)
+  partner: freshworks
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.freshworks.com/apps/freshservice_superops_integration
+  mirror_of: freshworks/integrations/freshworks-integration-edges.yml
+  apps:
+  - Freshservice SuperOps Integration
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  publisher_verified:
+  - Verified by Freshworks
 - partner_name: Microsoft Teams (own)
   partner: microsoft-teams
   partner_match: mirror
@@ -48,6 +66,7 @@ edges:
   - Microsoft 365 Certified
 method: searched
 checked:
+- freshworks/integrations/freshworks-integration-edges.yml
 - https://zapier.com/api/v4/apps/
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
 source:
